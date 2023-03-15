@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<button style="float: right" class="btn btn-info" onclick=" document.location='/add' ">Add</button>
+<div class="container">
+    <div class="row">
+        {% for i in movie_list %}
+        <div class="col-md-4">
+            <div class="card" style="width:23rem;">
+                <img src="{{i.img.url}}" class="card-img-top" alt="..." height="200px">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text">{{i.year}}</p>
+                    <a href="{% url 'movieapp:detail' i.id %}" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
